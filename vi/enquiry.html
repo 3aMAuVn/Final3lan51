@@ -1,0 +1,118 @@
+---
+layout: page
+title: Tư vấn | Magic Math Master
+description: Gửi câu hỏi cho Magic Math Master. Chúng tôi sẽ phản hồi sớm nhất và gợi ý bước tiếp theo phù hợp cho con bạn.
+lang: vi
+nav_key: main_vi
+body_class: page-enquiry page-vi
+permalink: /vi/enquiry.html
+---
+<main>
+<div class="container">
+<section class="hero-card hero-card--starry hero--starry hero-card--banner-copy">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-banner-hat" aria-hidden="true">
+    <img src="{{ '/assets/hat-no-background.png' | relative_url }}" alt="">
+  </div>
+
+  <div class="hero-banner-layout">
+    <div class="hero-banner-logo-wrap">
+      <img class="hero-banner-logo" src="{{ '/assets/logo.png' | relative_url }}" alt="Magic Math Master logo">
+    </div>
+
+    <div class="hero-copy hero-banner-copy">
+      <h1 class="hero-banner-title">Magic Math Master</h1>
+      <div class="hero-banner-subtitles" aria-label="Hero highlights">
+        <span class="sub-1">Học vui nhộn</span>
+        <span class="sub-dot">•</span>
+        <span class="sub-2">Toán học gắn với thực tế</span>
+        <span class="sub-dot">•</span>
+        <span class="sub-3">Xây dựng sự tự tin</span>
+      </div>
+
+      <div class="hero-banner-grid">
+      <div class="hero-banner-pill hero-banner-pill--blue">
+        <span class="pill-icon">?</span>
+        <span class="pill-text">Khơi gợi tò mò</span>
+      </div>
+      <div class="hero-banner-pill hero-banner-pill--green">
+        <span class="pill-icon">✎</span>
+        <span class="pill-text">Nuôi dưỡng sáng tạo</span>
+      </div>
+      <div class="hero-banner-pill hero-banner-pill--gold hero-banner-pill--wide">
+        <span class="pill-icon">Σ</span>
+        <span class="pill-text">Phát triển nhận thức</span>
+      </div>
+      <div class="hero-banner-pill hero-banner-pill--lavender">
+        <span class="pill-icon">☺</span>
+        <span class="pill-text">Truyền cảm hứng để trẻ học toán một cách vui vẻ</span>
+      </div>
+      <div class="hero-banner-pill hero-banner-pill--pink">
+        <span class="pill-icon">✦</span>
+        <span class="pill-text">Hoạt động toán vui theo sở thích của trẻ</span>
+      </div>
+      <div class="hero-banner-pill hero-banner-pill--cyan">
+        <span class="pill-icon">⌂</span>
+        <span class="pill-text">Học toán qua các hoạt động hằng ngày</span>
+      </div>
+      <div class="hero-banner-pill hero-banner-pill--mint">
+        <span class="pill-icon">♥</span>
+        <span class="pill-text">Giáo viên giàu kinh nghiệm và nhiệt huyết</span>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="wrap" id="enquiry-form">
+<div class="form-card">
+<div class="form-card-head">
+<h2 class="form-card-title">Biểu mẫu tư vấn học tập</h2>
+</div>
+<div class="form-card-body">
+<p class="note">
+            Biểu mẫu này dành cho <strong>học kèm</strong> (1 kèm 1, nhóm nhỏ, luyện thi, bồi dưỡng).
+            Maths Club có biểu mẫu đăng ký riêng.
+          </p>
+<iframe name="enquirySubmitFrame" class="util-hidden"></iframe>
+<form action="https://script.google.com/macros/s/AKfycbw3KTCtU35eY_r7F1tgkd16FlDM_C5ETnvgsLSaCNdybcuZvajIoy6lyuvznWu3VDg/exec" id="enquiryForm" method="post" novalidate="" target="enquirySubmitFrame">
+<input name="formType" type="hidden" value="tutoring-enquiry"/>
+<div class="grid-2">
+<div>
+<label class="required">Họ tên phụ huynh / người giám hộ</label>
+<input name="parent_name" required="" type="text"/>
+</div>
+<div>
+<label>Tên học sinh (không bắt buộc)</label>
+<input name="student_name" type="text"/>
+</div>
+</div>
+<div class="grid-2">
+<div>
+<label class="required">Email</label>
+<input name="email" required="" type="email"/>
+</div>
+<div>
+<label>Số điện thoại (không bắt buộc)</label>
+<input name="mobile" type="tel"/>
+</div>
+</div>
+<label class="required">Nội dung cần tư vấn</label>
+<textarea name="message" placeholder="Hãy cho chúng tôi biết bạn đang cần hỗ trợ gì, hình thức học mong muốn, và các nội dung cụ thể cần giúp đỡ..." required=""></textarea>
+<label class="option">
+<input name="consent" required="" type="checkbox" value="Yes"/>
+              Tôi đồng ý để Magic Math Master liên hệ với tôi về yêu cầu tư vấn này.
+            </label>
+<button class="btn btn-amber" type="submit">Gửi yêu cầu tư vấn</button>
+</form>
+</div>
+</div>
+</section>
+</div>
+</main>
+<div id="thankYouModal">
+<div class="modal-card">
+<h3>Cảm ơn bạn!</h3>
+<p>Chúng tôi đã nhận được yêu cầu tư vấn của bạn và sẽ liên hệ lại sớm.</p>
+<button class="btn btn-amber" onclick="document.getElementById('thankYouModal').style.display='none'">OK</button>
+</div>
+</div>

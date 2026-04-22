@@ -1,0 +1,24 @@
+title: Magic Math Master
+description: Premium maths tutoring for Prep to Year 12 in Australia.
+url: "https://www.magicmathmaster.com.au"
+sass:
+  sass_dir: _sass
+  style: compressed
+markdown: kramdown
+collections:
+  demos:
+    output: true
+    permalink: /demo/:path/
+
+baseurl: ""
+
+# Developer docs at repo root — skip Jekyll processing so literal
+# {% if %} examples inside them don't get parsed as Liquid.
+exclude:
+  - README.md
+  - BOOKING-SETUP.md
+  - HERO-BANNER-INTEGRATION.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .github
