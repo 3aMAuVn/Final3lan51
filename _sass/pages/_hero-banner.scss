@@ -1,0 +1,478 @@
+// ─────────────────────────────────────────────────────────────────
+// _hero-banner.scss
+// Responsive starry-night hero for Magic Math Master
+// ─────────────────────────────────────────────────────────────────
+
+// ── Keyframes ────────────────────────────────────────────────────
+@keyframes mmm-twinkle {
+  0%,  100% { opacity: 0.32; filter: brightness(0.96); }
+  35%       { opacity: 0.88; filter: brightness(1.10); }
+  65%       { opacity: 0.54; filter: brightness(1.00); }
+}
+
+// ── Section shell ─────────────────────────────────────────────────
+.mmm-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 16% -20%, rgba(37, 82, 193, 0.14), transparent 32%),
+    radial-gradient(circle at 84%   0%, rgba(48, 92, 220, 0.11), transparent 28%),
+    linear-gradient(180deg, #000b35 0%, #071851 100%);
+  color: #fff;
+  padding-bottom: 0;          // pills sit flush at the bottom
+}
+
+// ── Star-field overlay ────────────────────────────────────────────
+.mmm-hero__sky {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+// ── Main content row ──────────────────────────────────────────────
+.mmm-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;        // [logo] [copy]
+  align-items: center;
+  gap: 0 clamp(18px, 3vw, 48px);
+  padding-top:    clamp(24px, 4vw, 52px);
+  padding-bottom: clamp(20px, 3.5vw, 44px);
+}
+
+// ── Logo (far left) ───────────────────────────────────────────────
+.mmm-hero__logo {
+  display: block;
+  width:  clamp(72px, 12vw, 180px);
+  height: clamp(72px, 12vw, 180px);
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,0.22));
+  flex-shrink: 0;
+  align-self: center;
+  justify-self: start;
+}
+
+// ── Copy (centre) ─────────────────────────────────────────────────
+.mmm-hero__copy {
+  min-width: 0;
+}
+
+.mmm-hero__kicker {
+  margin: 0 0 8px;
+  color: rgba(255,255,255,.72);
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-size: .75rem;
+  font-weight: 900;
+}
+
+.mmm-hero__title {
+  margin: 0 0 clamp(6px, 1.2vw, 14px);
+  font-size: clamp(1.9rem, 4.2vw, 3.5rem);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: #ee8f2c;          // banner orange
+  font-family: "Arial Black", "Trebuchet MS", Arial, sans-serif;
+  text-shadow:
+    0 4px 0   rgba(0,0,0,0.38),
+    0 10px 18px rgba(0,0,0,0.22);
+  white-space: normal;
+  overflow-wrap: break-word;
+
+  // Compact size on phones
+  @media (max-width: 479px) {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    line-height: 1.1;
+  }
+}
+
+// ── Coloured subtitle tags ────────────────────────────────────────
+.mmm-hero__subs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(4px, 0.8vw, 11px);
+  margin-bottom: clamp(8px, 1.5vw, 18px);
+  font-family: "Arial Black", "Trebuchet MS", Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(0.7rem, 1.4vw, 1.25rem);
+  white-space: nowrap;
+  text-shadow:
+    -1px 0 #000, 1px 0 #000,
+    0 -1px #000, 0 1px #000;
+}
+
+.mmm-sub--1 { color: #ffad62; }
+.mmm-sub--2 { color: #68d6ff; }
+.mmm-sub--3 { color: #b6a6ff; }
+.mmm-sub-dot {
+  color: #fff;
+  font-size: 0.65em;
+  opacity: .9;
+}
+
+// ── Optional subtitle paragraph ──────────────────────────────────
+.mmm-hero__subtitle {
+  margin: 0 0 clamp(8px, 1.4vw, 16px);
+  font-size: clamp(.88rem, 1.4vw, 1.1rem);
+  color: rgba(255,255,255,.86);
+  max-width: 620px;
+  line-height: 1.55;
+}
+
+// ── CTA buttons ───────────────────────────────────────────────────
+.mmm-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(8px, 1.2vw, 14px);
+  margin-top: clamp(8px, 1.5vw, 18px);
+}
+
+// ── Hat (top-right corner of hero section) ───────────────────────
+.mmm-hero__hat {
+  position: absolute;
+  top:   clamp(10px, 1.6vw, 22px);
+  right: clamp(10px, 1.6vw, 22px);
+  z-index: 2;
+  display: block;
+  width:  clamp(56px, 8vw, 120px);
+  height: clamp(56px, 8vw, 120px);
+  object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.20));
+  flex-shrink: 0;
+}
+
+// ── Feature pills row (home page only) ───────────────────────────
+.mmm-hero__pills {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(180px, 22vw, 360px), 1fr));
+  gap: clamp(6px, 1vw, 12px);
+  padding-bottom: clamp(16px, 2.5vw, 32px);
+  padding-top: clamp(4px, 0.6vw, 8px);
+}
+
+.mmm-pill {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.2vw, 16px);
+  background: var(--pill-bg);
+  border: 2px solid rgba(255,255,255,.88);
+  border-radius: clamp(12px, 2vw, 28px);
+  padding: clamp(6px, 1vw, 10px) clamp(10px, 1.5vw, 18px);
+  color: #0c2137;
+  box-shadow: 0 4px 10px rgba(0,0,0,.10);
+}
+
+.mmm-pill__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width:  clamp(28px, 4vw, 54px);
+  height: clamp(28px, 4vw, 54px);
+  border-radius: 50%;
+  background: var(--pill-icon-bg);
+  border: 2px solid rgba(255,255,255,.90);
+  color: #fff;
+  font-size: clamp(0.85rem, 1.8vw, 1.6rem);
+  font-weight: 900;
+}
+
+.mmm-pill__text {
+  font-size: clamp(0.72rem, 1.4vw, 1.4rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+// ─── Tablet tweaks (600 – 900 px) ────────────────────────────────
+@media (max-width: 900px) {
+  .mmm-hero__inner {
+    grid-template-columns: auto 1fr;        // logo stays left, copy right
+  }
+  // Give a bit more right-side breathing room so copy doesn't run under the hat
+  .mmm-hero__copy {
+    padding-right: clamp(60px, 10vw, 110px);
+  }
+}
+
+// ─── Mobile (< 520 px) ───────────────────────────────────────────
+@media (max-width: 519px) {
+  .mmm-hero__inner {
+    grid-template-columns: auto 1fr;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  .mmm-hero__hat {
+    width: 44px;
+    height: 44px;
+    top: 8px;
+    right: 8px;
+  }
+  .mmm-hero__logo {
+    width: 56px;
+    height: 56px;
+    align-self: start;
+    margin-top: 4px;
+  }
+  .mmm-hero__copy {
+    padding-right: 50px;   // make room for the small corner hat
+  }
+  .mmm-hero__subs {
+    font-size: clamp(0.62rem, 3vw, 0.85rem);
+  }
+  // Pills collapse to a compact 2-col grid on small screens
+  .mmm-hero__pills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mmm-pill__text {
+    font-size: 0.68rem;
+  }
+}
+
+
+// ═══════════════════════════════════════════════════════════════════
+// Form-page hero (register / enquiry / club-register)
+// Styles the older .hero-card--starry markup so it matches the new
+// .mmm-hero look (hat top-left, copy centre, logo right).
+// Same colour palette, same scale, no markup changes needed.
+// ═══════════════════════════════════════════════════════════════════
+
+.hero-card.hero-card--starry {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  margin: 0 0 18px;
+  padding: clamp(20px, 3.5vw, 44px) clamp(18px, 3vw, 40px);
+  color: #fff;
+  background:
+    radial-gradient(circle at 16% -20%, rgba(37, 82, 193, 0.14), transparent 32%),
+    radial-gradient(circle at 84%   0%, rgba(48, 92, 220, 0.11), transparent 28%),
+    linear-gradient(180deg, #000b35 0%, #071851 100%);
+
+  // The JS in site.js injects a <div class="hero-bg"> with star images.
+  // Without these rules it stacks as a normal block and pushes everything
+  // else down by ~5000px. Absolute-position it so it overlays without
+  // affecting flow, and clip stars that would render outside.
+  > .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  > .hero-bg .hero-bg-scene {
+    position: absolute;
+    inset: 0;
+    transform-origin: top left;
+  }
+
+  // Subtle starry overlay (CSS-only — no JS dependency)
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      radial-gradient(1.2px 1.2px at 12% 18%, rgba(255,255,255,.85), transparent 60%),
+      radial-gradient(1px 1px at 28% 62%, rgba(255,255,255,.70), transparent 60%),
+      radial-gradient(1.4px 1.4px at 47% 28%, rgba(255,247,210,.85), transparent 60%),
+      radial-gradient(1px 1px at 64% 76%, rgba(255,255,255,.65), transparent 60%),
+      radial-gradient(1.2px 1.2px at 82% 22%, rgba(255,255,255,.80), transparent 60%),
+      radial-gradient(1px 1px at 92% 64%, rgba(255,247,210,.65), transparent 60%),
+      radial-gradient(1.3px 1.3px at 36% 88%, rgba(255,255,255,.75), transparent 60%);
+  }
+
+  // Hat sits absolutely in the top-right corner
+  .hero-banner-hat {
+    position: absolute;
+    top: clamp(10px, 1.6vw, 22px);
+    right: clamp(10px, 1.6vw, 22px);
+    z-index: 2;
+
+    img {
+      display: block;
+      width:  clamp(56px, 8vw, 120px);
+      height: clamp(56px, 8vw, 120px);
+      object-fit: contain;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.20));
+    }
+  }
+}
+
+// Layout row inside the form-page hero — copy centre, logo right
+.hero-card--starry .hero-banner-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;     // [logo] [copy]
+  align-items: center;
+  gap: 0 clamp(18px, 3vw, 48px);
+  // Push content down so the hat in the top-right doesn't collide on narrow widths
+  padding-top: clamp(28px, 4vw, 56px);
+  // Reserve space on the right so copy doesn't run under the absolute-positioned hat
+  padding-right: clamp(60px, 9vw, 130px);
+}
+
+.hero-card--starry .hero-banner-logo-wrap {
+  justify-self: start;
+  align-self: center;
+
+  .hero-banner-logo {
+    display: block;
+    width:  clamp(72px, 12vw, 180px);
+    height: clamp(72px, 12vw, 180px);
+    object-fit: contain;
+    filter: drop-shadow(0 8px 14px rgba(0,0,0,0.22));
+  }
+}
+
+.hero-card--starry .hero-banner-copy {
+  min-width: 0;
+  background: transparent;       // override generic .hero-copy white bg
+  border-top: 0;
+  padding: 0;
+}
+
+.hero-card--starry .hero-banner-title {
+  margin: 0 0 clamp(6px, 1.2vw, 14px);
+  font-size: clamp(1.9rem, 4.2vw, 3.5rem);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: #ee8f2c;
+  font-family: "Arial Black", "Trebuchet MS", Arial, sans-serif;
+  text-shadow:
+    0 4px 0   rgba(0,0,0,0.38),
+    0 10px 18px rgba(0,0,0,0.22);
+  white-space: normal;
+  overflow-wrap: break-word;
+
+  @media (max-width: 479px) {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    line-height: 1.1;
+  }
+}
+
+.hero-card--starry .hero-banner-subtitles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(4px, 0.8vw, 11px);
+  margin-bottom: clamp(8px, 1.5vw, 18px);
+  font-family: "Arial Black", "Trebuchet MS", Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(0.7rem, 1.4vw, 1.25rem);
+  white-space: nowrap;
+  text-shadow:
+    -1px 0 #000, 1px 0 #000,
+    0 -1px #000, 0 1px #000;
+
+  .sub-1 { color: #ffad62; }
+  .sub-2 { color: #68d6ff; }
+  .sub-3 { color: #b6a6ff; }
+  .sub-dot {
+    color: #fff;
+    font-size: 0.65em;
+    opacity: .9;
+  }
+}
+
+// Pills row — same auto-fill grid as the home-page mmm-hero pills
+.hero-card--starry .hero-banner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(180px, 22vw, 320px), 1fr));
+  gap: clamp(6px, 1vw, 12px);
+  margin-top: clamp(10px, 1.6vw, 18px);
+}
+
+.hero-banner-pill {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.2vw, 16px);
+  border: 2px solid rgba(255,255,255,.88);
+  border-radius: clamp(12px, 2vw, 28px);
+  padding: clamp(6px, 1vw, 10px) clamp(10px, 1.5vw, 18px);
+  color: #0c2137;
+  box-shadow: 0 4px 10px rgba(0,0,0,.10);
+
+  .pill-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width:  clamp(28px, 4vw, 54px);
+    height: clamp(28px, 4vw, 54px);
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,.90);
+    color: #fff;
+    font-size: clamp(0.85rem, 1.8vw, 1.6rem);
+    font-weight: 900;
+  }
+
+  .pill-text {
+    font-size: clamp(0.72rem, 1.4vw, 1.4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+  }
+}
+
+// Pill colour variants — mirror the canonical mmm-pill palette
+.hero-banner-pill--blue     { background: #86c9e9;
+  .pill-icon { background: #4aa1de; } }
+.hero-banner-pill--green    { background: #97cf8f;
+  .pill-icon { background: #a478f5; } }
+.hero-banner-pill--gold     { background: #efc676;
+  .pill-icon { background: #4dc1b1; } }
+.hero-banner-pill--lavender { background: #b6a6ea;
+  .pill-icon { background: #f0a24c; } }
+.hero-banner-pill--pink     { background: #f5b2bc;
+  .pill-icon { background: #f56d97; } }
+.hero-banner-pill--cyan     { background: #76bfdc;
+  .pill-icon { background: #58b8de; } }
+.hero-banner-pill--mint     { background: #93cc8d;
+  .pill-icon { background: #ef5a6c; } }
+
+// ── Form-page hero responsive ────────────────────────────────────
+@media (max-width: 900px) {
+  .hero-card--starry .hero-banner-layout {
+    grid-template-columns: 1fr auto;
+    gap: 14px;
+  }
+  .hero-card--starry .hero-banner-logo-wrap .hero-banner-logo {
+    width:  clamp(64px, 10vw, 110px);
+    height: clamp(64px, 10vw, 110px);
+  }
+}
+
+@media (max-width: 519px) {
+  .hero-card.hero-card--starry {
+    padding: 18px 16px;
+  }
+  .hero-card--starry .hero-banner-hat img {
+    width: 48px;
+    height: 48px;
+  }
+  .hero-card--starry .hero-banner-layout {
+    grid-template-columns: 1fr auto;
+    padding-top: 38px;
+  }
+  .hero-card--starry .hero-banner-logo-wrap .hero-banner-logo {
+    width: 56px;
+    height: 56px;
+  }
+  .hero-card--starry .hero-banner-subtitles {
+    font-size: clamp(0.62rem, 3vw, 0.85rem);
+  }
+  .hero-card--starry .hero-banner-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-banner-pill .pill-text {
+    font-size: 0.68rem;
+  }
+}

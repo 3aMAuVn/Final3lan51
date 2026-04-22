@@ -1,0 +1,182 @@
+{% comment %}
+  _includes/hero-starry-banner.html
+  ──────────────────────────────────────────────────────────────
+  Responsive starry-night hero banner for Magic Math Master.
+  Replaces both the home hero and the inner-page hero.
+
+  Front-matter variables consumed:
+    page.hero_title      – heading text (falls back to page.title)
+    page.hero_subtitle   – paragraph below the title (optional)
+    page.kicker          – small eyebrow line above the title (optional)
+    page.hero_class      – extra CSS class on <section> (optional)
+    page.show_hero_pills – set to true on the home page to show feature pills
+
+  The section generates its own twinkling star field via an inline
+  <script> so no extra JS file is needed.
+{% endcomment %}
+
+{% assign _is_vi = false %}
+{% assign _is_zh = false %}
+{% if page.lang == 'vi' or page.url contains '/vi/' %}{% assign _is_vi = true %}{% endif %}
+{% if page.lang == 'zh' or page.url contains '/cn/' %}{% assign _is_zh = true %}{% endif %}
+
+{% assign _reg_url   = '/register.html'  | relative_url %}
+{% assign _enq_url   = '/enquiry.html'   | relative_url %}
+{% assign _demo_url  = '#sec_freedemo' %}
+{% if _is_vi %}
+  {% assign _reg_url  = '/vi/register.html' | relative_url %}
+  {% assign _enq_url  = '/vi/enquiry.html'  | relative_url %}
+{% elsif _is_zh %}
+  {% assign _reg_url  = '/cn/register.html' | relative_url %}
+  {% assign _enq_url  = '/cn/enquiry.html'  | relative_url %}
+{% endif %}
+
+<section class="mmm-hero {{ page.hero_class }}" aria-label="Page hero">
+  <div class="mmm-hero__sky" aria-hidden="true"></div>
+  <img class="mmm-hero__hat"
+       src="{{ '/assets/hat-no-background.png' | relative_url }}"
+       alt=""
+       aria-hidden="true"
+       loading="eager">
+
+  <div class="mmm-hero__inner container">
+
+    <img class="mmm-hero__logo"
+         src="{{ '/assets/logo.png' | relative_url }}"
+         alt="Magic Math Master logo"
+         loading="eager">
+
+    <div class="mmm-hero__copy">
+
+      {% if page.kicker %}
+        <p class="mmm-hero__kicker">{{ page.kicker }}</p>
+      {% endif %}
+
+      <h1 class="mmm-hero__title">{{ page.hero_title | default: page.title }}</h1>
+
+      <div class="mmm-hero__subs" aria-label="Tagline">
+        <span class="mmm-sub mmm-sub--1">
+          {% if _is_vi %}Học vui vẻ{% elsif _is_zh %}趣味学习{% else %}Playful learning{% endif %}
+        </span>
+        <span class="mmm-sub-dot" aria-hidden="true">•</span>
+        <span class="mmm-sub mmm-sub--2">
+          {% if _is_vi %}Toán thực tế{% elsif _is_zh %}实用数学{% else %}Real-world maths{% endif %}
+        </span>
+        <span class="mmm-sub-dot" aria-hidden="true">•</span>
+        <span class="mmm-sub mmm-sub--3">
+          {% if _is_vi %}Xây dựng tự tin{% elsif _is_zh %}建立自信{% else %}Confidence building{% endif %}
+        </span>
+      </div>
+
+      {% if page.hero_subtitle %}
+        <p class="mmm-hero__subtitle">{{ page.hero_subtitle }}</p>
+      {% endif %}
+
+      <div class="mmm-hero__actions">
+        {% if page.show_hero_pills %}
+          <a class="btn btn-red"     href="{{ _demo_url }}">
+            {% if _is_vi %}Demo miễn phí{% elsif _is_zh %}免费试课{% else %}Free Demo{% endif %}
+          </a>
+        {% endif %}
+        <a class="btn btn-amber" href="{{ _reg_url }}">
+          {% if _is_vi %}Đăng ký{% elsif _is_zh %}报名{% else %}Register{% endif %}
+        </a>
+        <a class="btn btn-success" href="{{ _enq_url }}">
+          {% if _is_vi %}Gửi yêu cầu{% elsif _is_zh %}咨询{% else %}Enquire{% endif %}
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  {% if page.show_hero_pills %}
+  <div class="mmm-hero__pills container" aria-label="Key features">
+
+    <div class="mmm-pill" style="--pill-bg:#86c9e9;--pill-icon-bg:#4aa1de">
+      <span class="mmm-pill__icon" aria-hidden="true">?</span>
+      <span class="mmm-pill__text">
+        {% if _is_vi %}Kích thích sự tò mò{% elsif _is_zh %}激发好奇心{% else %}Stimulate curiosity{% endif %}
+      </span>
+    </div>
+
+    <div class="mmm-pill" style="--pill-bg:#97cf8f;--pill-icon-bg:#a478f5">
+      <span class="mmm-pill__icon" aria-hidden="true">✎</span>
+      <span class="mmm-pill__text">
+        {% if _is_vi %}Nuôi dưỡng sự sáng tạo{% elsif _is_zh %}培养创造力{% else %}Nurture creation{% endif %}
+      </span>
+    </div>
+
+    <div class="mmm-pill" style="--pill-bg:#efc676;--pill-icon-bg:#4dc1b1">
+      <span class="mmm-pill__icon" aria-hidden="true">Σ</span>
+      <span class="mmm-pill__text">
+        {% if _is_vi %}Phát triển nhận thức{% elsif _is_zh %}认知发展{% else %}Nurture cognitive development{% endif %}
+      </span>
+    </div>
+
+    <div class="mmm-pill" style="--pill-bg:#b6a6ea;--pill-icon-bg:#f0a24c">
+      <span class="mmm-pill__icon" aria-hidden="true">☺</span>
+      <span class="mmm-pill__text">
+        {% if _is_vi %}Truyền cảm hứng học toán vui vẻ{% elsif _is_zh %}激励孩子快乐学数学{% else %}Inspire kids to learn maths in a fun way{% endif %}
+      </span>
+    </div>
+
+    <div class="mmm-pill" style="--pill-bg:#f5b2bc;--pill-icon-bg:#f56d97">
+      <span class="mmm-pill__icon" aria-hidden="true">✦</span>
+      <span class="mmm-pill__text">
+        {% if _is_vi %}Hoạt động phù hợp sở thích{% elsif _is_zh %}按兴趣定制活动{% else %}Fun activities tailored to kids' interests{% endif %}
+      </span>
+    </div>
+
+    <div class="mmm-pill" style="--pill-bg:#76bfdc;--pill-icon-bg:#58b8de">
+      <span class="mmm-pill__icon" aria-hidden="true">⌂</span>
+      <span class="mmm-pill__text">
+        {% if _is_vi %}Học qua hoạt động thực tế{% elsif _is_zh %}通过日常活动学数学{% else %}Learn maths via everyday activities{% endif %}
+      </span>
+    </div>
+
+    <div class="mmm-pill" style="--pill-bg:#93cc8d;--pill-icon-bg:#ef5a6c">
+      <span class="mmm-pill__icon" aria-hidden="true">♥</span>
+      <span class="mmm-pill__text">
+        {% if _is_vi %}Giáo viên có kinh nghiệm & đam mê{% elsif _is_zh %}热情有经验的教师{% else %}Experienced teachers with passion{% endif %}
+      </span>
+    </div>
+
+  </div>
+  {% endif %}
+
+</section>
+
+<script>
+/* Starry-sky dot generator — runs once per page load */
+(function () {
+  'use strict';
+  var sky = document.querySelector('.mmm-hero__sky');
+  if (!sky) return;
+
+  var W  = sky.offsetWidth  || 1200;
+  var H  = sky.offsetHeight || 320;
+  /* ~1 dot per 5 000 sq-px, capped so it stays fast */
+  var n  = Math.min(Math.round(W * H / 5000), 220);
+  var frag = document.createDocumentFragment();
+
+  for (var i = 0; i < n; i++) {
+    var s    = document.createElement('span');
+    var size = (Math.random() * 1.6 + 0.7).toFixed(1);
+    var warm = Math.random() > 0.68;
+    var col  = warm ? 'rgba(248,239,210,0.92)' : 'rgba(255,255,255,0.92)';
+    var dur  = (Math.random() * 4.2 + 3.0).toFixed(2);
+    var del  = (-Math.random() * 7.0).toFixed(2);
+    s.style.cssText =
+      'position:absolute;border-radius:50%;pointer-events:none;' +
+      'left:'   + (Math.random() * 100).toFixed(2) + '%;' +
+      'top:'    + (Math.random() * 100).toFixed(2) + '%;' +
+      'width:'  + size + 'px;height:' + size + 'px;' +
+      'background:' + col + ';' +
+      'opacity:' + (Math.random() * 0.55 + 0.30).toFixed(2) + ';' +
+      'animation:mmm-twinkle ' + dur + 's ease-in-out ' + del + 's infinite;';
+    frag.appendChild(s);
+  }
+  sky.appendChild(frag);
+})();
+</script>

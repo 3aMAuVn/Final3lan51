@@ -1,0 +1,121 @@
+---
+layout: page
+title: 咨询
+description: 向 魔法数学大师 发送咨询。
+lang: zh
+nav_key: main_cn
+body_class: page-enquiry page-cn
+permalink: /cn/enquiry.html
+hero_title: 咨询
+hero_subtitle: 欢迎向我们提出任何课程问题
+---
+<main>
+<div class="container">
+<!-- ===== HERO ===== -->
+<section class="hero-card hero-card--starry hero--starry hero-card--banner-copy">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-banner-hat" aria-hidden="true">
+    <img src="{{ '/assets/hat-no-background.png' | relative_url }}" alt="">
+  </div>
+
+  <div class="hero-banner-layout">
+    <div class="hero-banner-logo-wrap">
+      <img class="hero-banner-logo" src="{{ '/assets/logo.png' | relative_url }}" alt="Magic Math Master logo">
+    </div>
+
+    <div class="hero-copy hero-banner-copy">
+      <h1 class="hero-banner-title">魔法数学大师</h1>
+      <div class="hero-banner-subtitles" aria-label="Hero highlights">
+        <span class="sub-1">趣味学习</span>
+        <span class="sub-dot">•</span>
+        <span class="sub-2">联系实际的数学</span>
+        <span class="sub-dot">•</span>
+        <span class="sub-3">建立自信</span>
+      </div>
+
+      <div class="hero-banner-grid">
+      <div class="hero-banner-pill hero-banner-pill--blue">
+        <span class="pill-icon">?</span>
+        <span class="pill-text">激发好奇心</span>
+      </div>
+      <div class="hero-banner-pill hero-banner-pill--green">
+        <span class="pill-icon">✎</span>
+        <span class="pill-text">培养创造力</span>
+      </div>
+      <div class="hero-banner-pill hero-banner-pill--gold hero-banner-pill--wide">
+        <span class="pill-icon">Σ</span>
+        <span class="pill-text">促进认知发展</span>
+      </div>
+      <div class="hero-banner-pill hero-banner-pill--lavender">
+        <span class="pill-icon">☺</span>
+        <span class="pill-text">用有趣的方式激励孩子学习数学</span>
+      </div>
+      <div class="hero-banner-pill hero-banner-pill--pink">
+        <span class="pill-icon">✦</span>
+        <span class="pill-text">根据孩子兴趣定制趣味数学活动</span>
+      </div>
+      <div class="hero-banner-pill hero-banner-pill--cyan">
+        <span class="pill-icon">⌂</span>
+        <span class="pill-text">在日常活动中学习数学</span>
+      </div>
+      <div class="hero-banner-pill hero-banner-pill--mint">
+        <span class="pill-icon">♥</span>
+        <span class="pill-text">充满热情且经验丰富的老师</span>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== FORM ===== -->
+<section class="wrap" id="enquiry-form">
+<div class="form-card">
+<div class="form-card-head">
+<h2 class="form-card-title">辅导咨询表单</h2>
+</div>
+<div class="form-card-body">
+<p class="note">
+   本咨询表适用于<strong>辅导课程</strong>（一对一、小组辅导、竞赛训练）。数学俱乐部有单独的报名表。
+   </p>
+<iframe name="enquirySubmitFrame" class="util-hidden"></iframe>
+<form action="https://script.google.com/macros/s/AKfycbw3KTCtU35eY_r7F1tgkd16FlDM_C5ETnvgsLSaCNdybcuZvajIoy6lyuvznWu3VDg/exec" id="enquiryForm" method="post" novalidate="" target="enquirySubmitFrame">
+<input name="formType" type="hidden" value="tutoring-enquiry"/>
+<div class="grid-2">
+<div>
+<label class="required">家长 / 监护人姓名</label>
+<input name="parent_name" required="" type="text"/>
+</div>
+<div>
+<label>学生姓名（可选）</label>
+<input name="student_name" type="text"/>
+</div>
+</div>
+<div class="grid-2">
+<div>
+<label class="required">电子邮箱</label>
+<input name="email" required="" type="email"/>
+</div>
+<div>
+<label>手机号码（可选）</label>
+<input name="mobile" type="tel"/>
+</div>
+</div>
+<label class="required">您的咨询内容</label>
+<textarea name="message" placeholder="请告诉我们您希望获得哪类支持、偏好的课程形式，和任何具体想加强的主题……" required=""></textarea>
+<label class="option">
+<input name="consent" required="" type="checkbox" value="Yes"/>
+    我同意魔法数学大师就本次咨询与我联系。
+   </label>
+<button class="btn btn-amber" type="submit">提交咨询</button>
+</form>
+</div>
+</div>
+</section>
+</div>
+</main>
+<div id="thankYouModal">
+<div class="modal-card">
+<h3>谢谢您！</h3>
+<p>您的咨询内容已收到。我们会尽快与您联系。</p>
+<button class="btn btn-amber" onclick="document.getElementById('thankYouModal').style.display='none'">确定</button>
+</div>
+</div>

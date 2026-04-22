@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+  <script>window.__MMM_LANG = {{ page.lang | default: 'en' | jsonify }};</script>
+  {% include head.html %}
+</head>
+{% assign asset_prefix = "." %}{% if page.url contains "/demo/" %}{% assign asset_prefix = "../.." %}{% elsif page.url contains "/vi/" or page.url contains "/cn/" %}{% assign asset_prefix = ".." %}{% endif %}
+<body data-asset-prefix="{{ asset_prefix }}" class="{{ page.body_class }}" data-page-lang="{{ page.lang | default: 'en' }}" data-pricing-lang="{{ page.pricing_lang | default: page.lang | default: 'en' }}">
+  {% include topbar.html %}
+  {{ content }}
+  {% include footer.html %}
+  {% include scripts.html %}
+</body>
+</html>
